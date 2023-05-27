@@ -40,7 +40,7 @@ body {
 </style>
 
 ## **Introduction**
-In this tutorial, I demo how to perform survival (AKA time to event) analysis with R for both human and mouse cancer datasets treated with checkpoint blockade immunotherapy. The emphasis of the analysis is in the context of my doctoral thesis work which focuses upon immunotherapy responsiveness of human and mouse tumors which harbor a mutation in the ARID1A tumor suppressor gene compared to tumors that do not. Following the demonstration survival analysis with log-rank test investigating a single variable, I also demonstrate how to perform a multi-variate analysis using the Cox regression model.
+In this tutorial, I demo how to perform survival (AKA time to event) analysis with R for a human clinical trial dataset for cancer patients treated with checkpoint blockade immunotherapy. The emphasis of the analysis is in the context of my doctoral thesis work which focuses upon immunotherapy responsiveness of human and mouse tumors which harbor a mutation in the ARID1A tumor suppressor gene compared to tumors that do not. Following the demonstration survival analysis with log-rank test investigating a single variable, I also demonstrate how to perform a multi-variate analysis using the Cox regression model.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
