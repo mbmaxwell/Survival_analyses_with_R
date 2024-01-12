@@ -13,8 +13,6 @@ output:
 
 ---
 
-
-
 <style>
 .tocify {
   font-size: 11pt;
@@ -57,7 +55,6 @@ library(survminer)
 
 #To set working directory on windows machine, replace backslashes with double backslashes for R to accept our file path
 wd <- r"(C:\Users\mattm\OneDrive\Desktop\GitHub_projects\Survival_analyses_with_R)"
-
 #set our working directory (where our files are stored and outputted)
 setwd(wd)
 
@@ -74,14 +71,14 @@ survival_df <- read.delim("tmb_mskcc_2018_clinical_data.txt", header=T, sep = "\
 #replace single periods or double periods in column names with a single underscore
 colnames(survival_df) <- gsub("\\.|\\.\\.", "_", colnames(survival_df))
 
-head(survival_df)
+head(survival_df, n=3)
 dim(survival_df) #1661
 length(unique(survival_df$Patient.ID)) #1661
 
 #read in ARID1A mutant patient data
 msk_arid1a <- read.delim("ARID1A_mutant_tmb_mskcc_2018_clinical_data.txt",header=T, sep = "\t")
 colnames(msk_arid1a) <- gsub("\\.|\\.\\.", "_", colnames(msk_arid1a))
-head(msk_arid1a)
+head(msk_arid1a, n=3)
 dim(msk_arid1a) #190
 
 ```
@@ -124,7 +121,7 @@ plot(fit)
 
 ## **Customizing Kaplan Meier curves**
 To make our kaplan meier curve plot more informative, let's add a color code, label the axes, a table below the plot to show the number of patients across time, a p-value from log-rank test, and confidence intervals. This should make for a much more informative kaplan meier plot! 
-```{r MSK-Kaplan-Meier-curve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "**Figure 2: Customized Kaplan Meier Curve of ARID1A Mutant vs Non-Mutant Human Cancers Following Immunotherapy**", fig.height=7, fig.width=7}
+```{r MSK-Kaplan-Meier-curve, message=FALSE, warning=FALSE, fig.cap = "**Figure 2: Customized Kaplan Meier Curve of ARID1A Mutant vs Non-Mutant Human Cancers Following Immunotherapy**", fig.height=7, fig.width=7}
 
 msk_surv <- ggsurvplot(fit, data = survival_df, palette = c("red", "blue"), title = "MSK Immunotherapy Cohort",
                        legend.title="Tumor Genotype", legend.labs=c("ARID1A mutant", "ARID1A non-mutant"), 
@@ -228,4 +225,11 @@ ggforest(cox_sex, data = survival_df, fontsize = 0.8)
 ```
 
 I used biological sex as a co-variate with ARID1A mutation because it's available in this dataset. The cox model here suggesting that males have a slightly better immunotherapy response (although not significant) than females could be due a number of confounding factors including the types of sex organ cancer included in the MSK dataset and thus biasing the sex variable towards males. To be clear, I'm only using biological sex as an example for co-variate analysis and don't plan on investigating immunotherapy response biases between sexes at present nor am I making any statements about sex and immunotherapy response, although this is a growing area of study in immunology. 
+
+
+## **Session info**
+For reproducibility purposes, outputting the version of R and package versions that I'm using for this tutorial
+```{r}
+print(sessionInfo())
+```
 
