@@ -47,7 +47,7 @@ knitr::opts_chunk$set(warning = FALSE)
 ```
 
 ## **Import data & load packages**
-Here we load the only two required packages for these analysis, the [Survival](https://github.com/therneau/survival) package for constructing our fitted survival model and [Survminer](https://github.com/kassambara/survminer) for visualizing the survival data with customizable Kaplan Meier survival curves. To acquire clinical trial data from Memorial Sloan Kettering (MSK) asessing response to immunotherapies such as anti-PDL1, anti-PD1, or anti-CTLA4, I visited the study page on the publicly available cBioPortal for cancer genomics and downloaded the [MSK data](https://www.cbioportal.org/study/summary?id=tmb_mskcc_2018) for all patients in the study (n=1661) as well as just the patients whose tumors have an ARID1A mutation (n=190). 
+Here we load the only two required packages for this analysis, the [Survival](https://github.com/therneau/survival) package for constructing our fitted survival model and [Survminer](https://github.com/kassambara/survminer) for visualizing the survival data with customizable Kaplan Meier survival curves. To acquire clinical trial data from Memorial Sloan Kettering (MSK) assessing response to immunotherapies such as anti-PDL1, anti-PD1, or anti-CTLA4, I visited the study page on the publicly available cBioPortal for cancer genomics and downloaded the [MSK data](https://www.cbioportal.org/study/summary?id=tmb_mskcc_2018) for all patients in the study (n=1661) as well as just the patients whose tumors have an ARID1A mutation (n=190). 
 ```{r MSK-Immunotherapy-Data-Import, message=FALSE, warning=FALSE}
 library(survival)
 library(survminer)
